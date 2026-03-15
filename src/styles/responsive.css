@@ -1,0 +1,168 @@
+/* Mobile Responsive Styles */
+
+/* Base responsive breakpoints */
+:root {
+  --mobile: 768px;
+  --tablet: 1024px;
+  --desktop: 1280px;
+}
+
+/* Mobile First - Base styles for mobile */
+@media (max-width: 768px) {
+  /* Hide desktop sidebar, show mobile header */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Container padding adjustments */
+  [style*="padding: 24px"] {
+    padding: 16px !important;
+  }
+
+  /* Grid adjustments */
+  [style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats cards - stack vertically */
+  [style*="display: grid"][style*="gap: 16px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Table containers - horizontal scroll */
+  [style*="overflowX: auto"] {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Modal adjustments */
+  [style*="maxWidth: 500px"] {
+    max-width: 95% !important;
+    margin: 10px !important;
+  }
+
+  /* Font size adjustments */
+  [style*="fontSize: 28px"] {
+    font-size: 22px !important;
+  }
+
+  [style*="fontSize: 24px"] {
+    font-size: 20px !important;
+  }
+
+  /* Button adjustments */
+  button {
+    min-height: 44px; /* Touch-friendly */
+  }
+
+  /* Input adjustments */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
+
+  /* Sidebar adjustments */
+  aside {
+    width: 280px !important;
+  }
+
+  /* Main content adjustments */
+  main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding-top: 60px; /* Space for mobile header */
+  }
+
+  /* Card adjustments */
+  [style*="padding: 20px"] {
+    padding: 16px !important;
+  }
+
+  /* Flex adjustments */
+  [style*="display: flex"][style*="gap"] {
+    flex-wrap: wrap;
+  }
+
+  /* Hide overflow text */
+  [style*="whiteSpace: nowrap"] {
+    white-space: normal !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* 2-column grids */
+  [style*="gridTemplateColumns: repeat(auto-fill"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Adjust padding */
+  [style*="padding: 24px"] {
+    padding: 20px !important;
+  }
+}
+
+/* Desktop - keep original styles */
+@media (min-width: 1025px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  button, a, input[type="checkbox"], input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects on touch devices */
+  *:hover {
+    transform: none !important;
+  }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Reduce header height */
+  [style*="height: 60px"] {
+    height: 50px !important;
+  }
+
+  /* Adjust padding */
+  main {
+    padding-top: 50px !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  aside, .mobile-header, button {
+    display: none !important;
+  }
+
+  main {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support (already dark, but for completeness) */
+@media (prefers-color-scheme: dark) {
+  /* Already using dark theme */
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  * {
+    border-width: 2px !important;
+  }
+}
